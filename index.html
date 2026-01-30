@@ -1,45 +1,271 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--
+	Birthday Surprise — index.html
+	A handcrafted, single-page romantic birthday site scaffold.
+	- Semantic HTML5 structure
+	- Links to external CSS and JS (style.css, script.js)
+	- Placeholder images and text where personal data should go
+	- Extensive comments for maintainability and for future edits
+	Note: style and script files are separate and will implement visuals + interactivity.
+-->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>For My Love ❤️</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="A personal, romantic birthday page — made with love." />
+		<title>For You — A Birthday Surprise</title>
+		<!-- Link to the main stylesheet (to be created) -->
+		<link rel="stylesheet" href="style.css" />
+		<!-- Fallback fonts and a note: fonts may be added later -->
+		<style>
+			/* Minimal safe fallback in case external CSS hasn't loaded yet */
+			:root{--bg:#ffeef6;--accent:#ff6f91}
+			html,body{height:100%;margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+		</style>
+	</head>
+	<body>
+		<!-- Skip link for accessibility -->
+		<a class="skip-link" href="#main" aria-hidden="false">Skip to content</a>
 
-    <div class="container">
+		<!-- Decorative background canvas for floating hearts / fireworks (JS/CSS will hook this) -->
+		<div id="background-visuals" aria-hidden="true"></div>
 
-        <!-- Closed Gift -->
-        <div class="gift" id="gift">
-            🎁
-            <p>Click me!</p>
-        </div>
+		<!-- Main navigation (anchors scroll to sections) -->
+		<header class="site-header" role="banner">
+			<nav class="nav" role="navigation" aria-label="Primary">
+				<button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+				<ul id="main-nav" class="nav-list">
+					<li><a href="#intro">Intro</a></li>
+					<li><a href="#story">Our Story</a></li>
+					<li><a href="#gallery">Memories</a></li>
+					<li><a href="#letter">Love Letter</a></li>
+					<li><a href="#games">Play</a></li>
+					<li><a href="#surprise">Surprise</a></li>
+					<li><a href="#final">Happy Birthday</a></li>
+				</ul>
+			</nav>
+		</header>
 
-        <!-- Hidden Birthday Card -->
-        <div class="card" id="card">
-            <h1>Happy Birthday ❤️</h1>
-            <h2>My Favorite Person</h2>
+		<!-- Main content area -->
+		<main id="main" tabindex="-1">
 
-            <p>
-                Today isn’t just your birthday,  
-                it’s the day the world got brighter 🌸  
-                Thank you for being my smile,  
-                my peace, and my forever 💕
-            </p>
+			<!-- 1) LANDING / INTRO SECTION -->
+			<section id="intro" class="section intro" aria-labelledby="intro-title">
+				<!-- full-screen hero with animated gradient and floating hearts -->
+				<div class="hero">
+					<div class="hero-content">
+						<h1 id="intro-title" class="hero-title" aria-live="polite">
+							<!-- Animated text will be controlled by JS (typewriter + fade-in) -->
+							<span class="pre">Hey Love</span>
+							<span class="heart"> ❤️</span>
+							<span class="line">I made something for you…</span>
+						</h1>
+						<p class="hero-sub">A little world, written just for you.</p>
 
-            <p>
-                I wish I could wrap all my love  
-                and give it to you today 🎀  
-                Until then, this little page  
-                is a reminder of us ✨
-            </p>
+						<!-- Start button triggers smooth scroll to story and reveals more animations -->
+						<div class="cta-row">
+							<button id="start-btn" class="btn primary" aria-controls="story">Start the Surprise 🎁</button>
+							<a class="btn ghost" href="#gallery">Browse Memories</a>
+						</div>
+					</div>
 
-            <div class="signature">
-                — Yours, always 💌
-            </div>
-        </div>
+					<!-- soft floating hearts are purely decorative; CSS will animate via keyframes -->
+					<div class="floating-hearts" aria-hidden="true">
+						<!-- Several span elements will be duplicated/animated by CSS/JS -->
+						<span class="heart-anim h1"></span>
+						<span class="heart-anim h2"></span>
+						<span class="heart-anim h3"></span>
+						<span class="heart-anim h4"></span>
+						<span class="heart-anim h5"></span>
+					</div>
+				</div>
+			</section>
 
-    </div>
+			<!-- 2) STORY SECTION (INTERACTIVE TIMELINE) -->
+			<section id="story" class="section story" aria-labelledby="story-title">
+				<div class="container">
+					<h2 id="story-title">Our Story</h2>
+					<p class="lead">A little timeline of us — click or hover each card to reveal a memory.</p>
 
-</body>
+					<ol class="timeline" role="list">
+						<!-- Timeline items are interactive; JS will manage the reveal animation and sequencing -->
+						<li class="timeline-item" data-order="1">
+							<button class="timeline-card" aria-expanded="false">
+								<h3>When we met</h3>
+								<p class="summary">The moment everything felt different.</p>
+								<div class="details">I remember your smile like sunlight — the small talk that led to endless conversations.</div>
+							</button>
+						</li>
+
+						<li class="timeline-item" data-order="2">
+							<button class="timeline-card" aria-expanded="false">
+								<h3>Why I love you</h3>
+								<p class="summary">Tiny things, big meaning.</p>
+								<div class="details">Your kindness is a soft lighthouse. You make me better without trying to change me.</div>
+							</button>
+						</li>
+
+						<li class="timeline-item" data-order="3">
+							<button class="timeline-card" aria-expanded="false">
+								<h3>How you changed my life</h3>
+								<p class="summary">A new lens to see the world.</p>
+								<div class="details">You turned ordinary days into little adventures. You taught me patience and wonder.</div>
+							</button>
+						</li>
+
+						<li class="timeline-item" data-order="4">
+							<button class="timeline-card" aria-expanded="false">
+								<h3>Favorite moment</h3>
+								<p class="summary">A laugh, a kiss, and a soft rain.</p>
+								<div class="details">One evening we danced in the kitchen with no music but heartbeats — I keep that memory warm.</div>
+							</button>
+						</li>
+					</ol>
+
+					<!-- Button to animate timeline cards one-by-one via JS -->
+					<div class="center"><button id="replay-timeline" class="btn">Replay Our Story</button></div>
+				</div>
+			</section>
+
+			<!-- 3) MEMORY GALLERY -->
+			<section id="gallery" class="section gallery" aria-labelledby="gallery-title">
+				<div class="container">
+					<h2 id="gallery-title">Memory Gallery</h2>
+					<p class="lead">A collection of photos and small captions. Click to open and read more.</p>
+
+					<!-- Grid of placeholder images — JS will add keyboard navigation and modal opening -->
+					<div class="photo-grid" role="list">
+						<!-- Repeatable item -->
+						<figure class="photo" tabindex="0" data-index="0">
+							<img src="https://via.placeholder.com/400x300?text=Memory+1" alt="Memory 1 placeholder" />
+							<figcaption>Our first coffee together — your laugh in the corner.</figcaption>
+						</figure>
+
+						<figure class="photo" tabindex="0" data-index="1">
+							<img src="https://via.placeholder.com/400x300?text=Memory+2" alt="Memory 2 placeholder" />
+							<figcaption>Walking in the park — a tiny picnic we almost forgot.</figcaption>
+						</figure>
+
+						<figure class="photo" tabindex="0" data-index="2">
+							<img src="https://via.placeholder.com/400x300?text=Memory+3" alt="Memory 3 placeholder" />
+							<figcaption>A sunset selfie — you caught the light perfectly.</figcaption>
+						</figure>
+
+						<figure class="photo" tabindex="0" data-index="3">
+							<img src="https://via.placeholder.com/400x300?text=Memory+4" alt="Memory 4 placeholder" />
+							<figcaption>That rainy movie night — popcorn and cozy blankets.</figcaption>
+						</figure>
+					</div>
+
+					<!-- Modal/Lightbox (hidden by default) -->
+					<div id="photo-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+						<div class="modal-inner">
+							<button class="modal-close" aria-label="Close">✕</button>
+							<div class="modal-media">
+								<img src="" alt="Expanded memory" />
+							</div>
+							<div class="modal-caption"></div>
+							<div class="modal-controls">
+								<button class="modal-prev">◀</button>
+								<button class="modal-next">▶</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 4) LOVE LETTER SECTION -->
+			<section id="letter" class="section letter" aria-labelledby="letter-title">
+				<div class="container">
+					<h2 id="letter-title">A Love Letter</h2>
+					<p class="lead">I wrote this for you — watch the letter appear, line by line.</p>
+
+					<article class="paper" role="article" aria-live="polite">
+						<!-- The typewriter area will be populated by JS, and controls will pause/resume -->
+						<div id="typewriter" class="typewriter" aria-atomic="true"></div>
+
+						<div class="type-controls">
+							<button id="pause-letter" class="btn">Pause</button>
+							<button id="resume-letter" class="btn">Resume</button>
+						</div>
+					</article>
+
+					<!-- Ambient background animation container (stars, soft particles) -->
+					<div class="ambient" aria-hidden="true"></div>
+				</div>
+			</section>
+
+			<!-- 5) MINI GAMES / INTERACTION -->
+			<section id="games" class="section games" aria-labelledby="games-title">
+				<div class="container">
+					<h2 id="games-title">Tiny Games</h2>
+					<p class="lead">Click the hearts! Collect points and read the little love notes.</p>
+
+					<div class="game-area">
+						<div id="hearts-area" class="hearts-area" aria-hidden="false"></div>
+						<div class="scoreboard">
+							<div>Score: <span id="score">0</span></div>
+							<div id="score-msg" class="score-msg">Keep clicking the hearts 💖</div>
+						</div>
+						<button id="start-game" class="btn primary">Start Game</button>
+						<button id="reset-game" class="btn ghost">Reset</button>
+					</div>
+				</div>
+			</section>
+
+			<!-- 6) SURPRISE SECTION (Hidden until unlocked) -->
+			<section id="surprise" class="section surprise" aria-labelledby="surprise-title">
+				<div class="container">
+					<h2 id="surprise-title">A Little Secret</h2>
+					<p class="lead">Enter the secret word to open the final surprise.</p>
+
+					<form id="surprise-form" class="surprise-form" aria-describedby="surprise-hint">
+						<label for="pw">Password (her name):</label>
+						<input id="pw" name="pw" type="password" placeholder="Her name" autocomplete="off" />
+						<button type="submit" class="btn primary">Unlock</button>
+						<p id="surprise-hint" class="hint">Hint: It's her beautiful name (placeholder).</p>
+					</form>
+
+					<!-- Confetti container (JS will trigger CSS particles) -->
+					<div id="confetti" class="confetti" aria-hidden="true"></div>
+
+					<div id="surprise-message" class="surprise-message" hidden>
+						<h3>You are my forever ❤️</h3>
+						<p>This message is yours, always.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- 7) FINAL BIRTHDAY MESSAGE -->
+			<section id="final" class="section final" aria-labelledby="final-title">
+				<div class="container final-inner">
+					<h2 id="final-title">Happy Birthday 🎂</h2>
+					<p class="lead">All my love, wrapped in code and color.</p>
+
+					<div class="final-visuals" aria-hidden="true">
+						<!-- Fireworks / sparkles canvas — added by CSS/JS -->
+						<div class="fireworks"></div>
+					</div>
+
+					<div class="final-cta">
+						<p class="final-text">This site was made only for you — every pixel and every word.</p>
+						<!-- Optional audio hook: commented out for privacy; can be enabled by the user -->
+						<!-- <audio id="birthday-music" src="./audio/birthday-song.mp3" preload="none"></audio> -->
+					</div>
+
+				</div>
+			</section>
+
+		</main>
+
+		<!-- Footer with a tiny signature -->
+		<footer class="site-footer" role="contentinfo">
+			<div class="container">
+				<small>Made with all my heart • <span class="signature">— [Your Name]</span></small>
+			</div>
+		</footer>
+
+		<!-- Link to the main script file (to be created). Defer execution until HTML is parsed -->
+		<script src="script.js" defer></script>
+	</body>
 </html>
