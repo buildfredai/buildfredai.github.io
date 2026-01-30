@@ -1,163 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>FRED — Digital Assistant Project</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
-</head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday My Love ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .card {
+            background: white;
+            width: 350px;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: pop 1s ease;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #444;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .heart {
+            font-size: 50px;
+            animation: beat 1s infinite;
+        }
+
+        .from {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff4d6d;
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>🤖 FRED</h1>
-    <p class="subtitle">
-      FRED (Functional Reasoning & Execution Device) is a long-term
-      digital assistant project focused on automation, learning,
-      and personal productivity.
-    </p>
-    <a class="btn" href="https://github.com/buildfredai" target="_blank">
-      Explore Source Code →
-    </a>
-  </section>
+    <div class="card">
+        <div class="heart">❤️</div>
+        <h1>Happy Birthday!</h1>
+        <h2>My Beautiful Love 💕</h2>
 
-  <!-- VISION -->
-  <section>
-    <h2>🎯 Vision</h2>
-    <p>
-      FRED is not built as a one-time app. It is designed as an evolving system
-      that grows alongside its creator. The goal is to understand how real
-      assistants work internally — memory, decision-making, automation,
-      and versioned growth.
-    </p>
-    <p>
-      This project prioritizes <strong>learning by building</strong> rather than
-      using black-box tools.
-    </p>
-  </section>
-
-  <!-- FEATURES -->
-  <section>
-    <h2>✨ Core Features</h2>
-    <div class="grid">
-
-      <div class="card">
-        <h3>🧠 Long-Term Memory</h3>
         <p>
-          Stores preferences, context, and structured knowledge
-          to improve responses over time.
+            On your special day, I just want you to know  
+            how thankful I am to have you in my life.  
+            You make my world brighter, happier, and better  
+            just by being you ✨
         </p>
-      </div>
 
-      <div class="card">
-        <h3>⚙ Task Automation</h3>
         <p>
-          Automates repetitive workflows such as file handling,
-          data processing, and developer utilities.
+            May all your dreams come true today and always 🌸  
+            I promise to stand by you, laugh with you,  
+            and love you endlessly 💖
         </p>
-      </div>
 
-      <div class="card">
-        <h3>📚 Learning Engine</h3>
-        <p>
-          Learns from interactions, experiments, and failures
-          using version-based improvements.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🧩 Modular Design</h3>
-        <p>
-          Each capability is built as an independent module
-          to keep the system extensible.
-        </p>
-      </div>
-
+        <div class="from">
+            — Yours Forever 💌
+        </div>
     </div>
-  </section>
-
-  <!-- ARCHITECTURE -->
-  <section>
-    <h2>🏗 Architecture Overview</h2>
-    <div class="grid">
-
-      <div class="card">
-        <h3>Input Layer</h3>
-        <p>
-          CLI / future web UI for commands and queries.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Core Logic</h3>
-        <p>
-          Decision engine, intent parsing, and execution flow.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Memory Layer</h3>
-        <p>
-          Stores structured data, logs, and learning artifacts.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Execution Layer</h3>
-        <p>
-          Scripts, APIs, and automation tools.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- VERSIONING -->
-  <section>
-    <h2>🛣 Version Roadmap</h2>
-    <div class="grid">
-
-      <div class="card">
-        <h3>v0.x (Foundation)</h3>
-        <p>
-          Core logic, CLI interface, basic memory handling.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>v1.0 (Assistant)</h3>
-        <p>
-          Stable automation features and personal workflows.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>v2.0+ (Intelligent)</h3>
-        <p>
-          Smarter reasoning, plugins, and adaptive behavior.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- TECH STACK -->
-  <section>
-    <h2>🧰 Tech Stack</h2>
-    <div class="grid">
-      <div class="card"><p>🐍 Python</p></div>
-      <div class="card"><p>🧠 AI / ML Concepts</p></div>
-      <div class="card"><p>📦 Modular Architecture</p></div>
-      <div class="card"><p>🌐 GitHub Pages</p></div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>Built by Krishna • FRED Project</p>
-    <p>Learning-focused • Versioned • Open-ended</p>
-  </footer>
 
 </body>
 </html>
